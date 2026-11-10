@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FinReason project results: an explainable financial anomaly detection research prototype.">
+  <title>FinReason | Project Results</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to results</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#overview" aria-label="FinReason results home">
+        <span class="brand-mark" aria-hidden="true">FR</span>
+        <span>
+          <strong>FinReason</strong>
+          <small>Project results</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-navigation" class="site-navigation" aria-label="Results sections">
+        <a href="#overview">Overview</a>
+        <a href="#comparison">Models</a>
+        <a href="#improvements">Improvements</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#limitations">Limitations</a>
+      </nav>
+
+      <button class="print-button" type="button" data-print>Print summary</button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="results-status" data-results-status role="status" aria-live="polite">
+      Loading evaluation results from the notebook outputs…
+    </div>
+    <section id="overview" class="hero section-anchor">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow">Explainable financial anomaly detection</div>
+          <h1>Strong detection with evidence an analyst can follow.</h1>
+          <p class="hero-lead">
+            FinReason combines temporal graph patterns, a bounded rolling detector,
+            statistical signals and rule-based reasoning. The selected hybrid achieved a
+            <strong id="hero-f1">—</strong> on the held-out synthetic test set.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#comparison">Explore the results</a>
+            <a class="button button-secondary" href="#methodology">See evaluation scope</a>
+          </div>
+        </div>
+
+        <aside class="hero-summary" aria-label="Selected model summary">
+          <div class="status-row">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="project-status">—</span>
+          </div>
+          <dl>
+            <div>
+              <dt>Selected approach</dt>
+              <dd id="selected-approach">—</dd>
+            </div>
+            <div>
+              <dt>Evaluation population</dt>
+              <dd id="evaluation-population">—</dd>
+            </div>
+            <div>
+              <dt>Positive test labels</dt>
+              <dd id="positive-labels">—</dd>
+            </div>
+            <div>
+              <dt>Decision status</dt>
+              <dd id="decision-status">—</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="results-strip" aria-label="Headline held-out test metrics">
+      <div class="container kpi-grid">
+        <article class="kpi-card">
+          <p>Precision</p>
+          <strong id="headline-precision">—</strong>
+          <span>Few predicted cases were incorrect</span>
+        </article>
+        <article class="kpi-card">
+          <p>Recall</p>
+          <strong id="headline-recall">—</strong>
+          <span>Most labelled laundering was detected</span>
+        </article>
+        <article class="kpi-card kpi-card-accent">
+          <p>F1 score</p>
+          <strong id="headline-f1">—</strong>
+          <span>Best precision–recall balance</span>
+        </article>
+        <article class="kpi-card">
+          <p>False-positive rate</p>
+          <strong id="headline-fpr">—</strong>
+          <span id="false-positive-summary">—</span>
+        </article>
+      </div>
+      <p class="container metric-scope">
+        Headline metrics use the <strong>FinReason synthetic test split</strong> and the
+        <code>is_laundering</code> label. Values are not pooled with PaySim or IBM AML.
+      </p>
+    </section>
+
+    <section id="comparison" class="section section-anchor">
+      <div class="container">
+        <header class="section-heading split-heading">
+          <div>
+            <div class="eyebrow eyebrow-dark">Held-out evaluation</div>
+            <h2>Why the graph + rolling hybrid was selected</h2>
+          </div>
+          <p>
+            It produced the highest test F1 while retaining high precision and substantially
+            improving recall over graph-only detection.
+          </p>
+        </header>
+
+        <div class="comparison-layout">
+          <article class="panel chart-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-kicker">Model selection</p>
+                <h3>Test F1 by variant</h3>
+              </div>
+              <span class="scope-chip">Synthetic test set</span>
+            </div>
+
+            <div class="bar-chart" id="model-chart" role="img" aria-label="Loading model comparison"></div>
+          </article>
+
+          <article class="panel insight-panel">
+            <p class="panel-kicker">Operational reading</p>
+            <h3>A balanced review queue</h3>
+            <p>
+              The selected model predicted <span id="predicted-positives">—</span> positive transactions.
+              Its precision was <span id="operational-precision">—</span>, while recall improved by
+              <strong id="recall-improvement">—</strong>
+              compared with graph-only detection.
+            </p>
+            <dl class="compact-stats">
+              <div><dt>Scenario detection</dt><dd id="scenario-detection">—</dd></div>
+              <div><dt>Alerts per 1,000</dt><dd id="alert-burden">—</dd></div>
+              <div><dt>Pipeline runtime</dt><dd id="pipeline-runtime">—</dd></div>
+              <div><dt>Evidence traceability</dt><dd id="traceability">—</dd></div>
+            </dl>
+            <div class="callout callout-blue">
+              <strong>Trade-off:</strong> <span id="union-tradeoff">—</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="table-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Full comparison</p>
+              <h3>Held-out laundering metrics</h3>
+            </div>
+            <span class="table-note">Higher is better, except FPR and burden</span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <caption>Comparison of test metrics for all evaluated model variants</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Variant</th>
+                  <th scope="col">Precision</th>
+                  <th scope="col">Recall</th>
+                  <th scope="col">F1</th>
+                  <th scope="col"><abbr title="False-positive rate">FPR</abbr></th>
+                  <th scope="col">Scenarios</th>
+                  <th scope="col">Alerts / 1,000</th>
+                </tr>
+              </thead>
+              <tbody id="model-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <header class="section-heading">
+          <div class="eyebrow eyebrow-dark">Generalisation check</div>
+          <h2>Validation and test results remained close</h2>
+          <p>
+            The selected model's F1 changed by only <span id="f1-change">—</span> between the
+            validation and test splits, with no collapse in precision or recall.
+          </p>
+        </header>
+
+        <div class="stability-grid">
+          <article class="panel metric-comparison">
+            <div class="metric-comparison-heading">
+              <h3>Precision</h3><span id="precision-delta">—</span>
+            </div>
+            <div class="dual-bar">
+              <div><span>Validation</span><div><i id="precision-validation-bar"></i></div><strong id="precision-validation">—</strong></div>
+              <div><span>Test</span><div><i id="precision-test-bar"></i></div><strong id="precision-test">—</strong></div>
+            </div>
+          </article>
+          <article class="panel metric-comparison">
+            <div class="metric-comparison-heading">
+              <h3>Recall</h3><span id="recall-delta">—</span>
+            </div>
+            <div class="dual-bar">
+              <div><span>Validation</span><div><i id="recall-validation-bar"></i></div><strong id="recall-validation">—</strong></div>
+              <div><span>Test</span><div><i id="recall-test-bar"></i></div><strong id="recall-test">—</strong></div>
+            </div>
+          </article>
+          <article class="panel metric-comparison">
+            <div class="metric-comparison-heading">
+              <h3>F1 score</h3><span id="f1-delta">—</span>
+            </div>
+            <div class="dual-bar">
+              <div><span>Validation</span><div><i id="f1-validation-bar"></i></div><strong id="f1-validation">—</strong></div>
+              <div><span>Test</span><div><i id="f1-test-bar"></i></div><strong id="f1-test">—</strong></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="improvements" class="section section-anchor">
+      <div class="container">
+        <header class="section-heading split-heading">
+          <div>
+            <div class="eyebrow eyebrow-dark">Targeted improvements</div>
+            <h2>What changed in Sections 5 and 9</h2>
+          </div>
+          <p>
+            The evaluation was corrected to distinguish catalogue coverage from real false
+            positives, and the one-day statistical window was replaced with bounded rolling state.
+          </p>
+        </header>
+
+        <div class="improvement-grid">
+          <article class="improvement-card">
+            <div class="improvement-number">05</div>
+            <div class="improvement-content">
+              <span class="scope-chip">Training diagnostic</span>
+              <h3>False positives measured against labels</h3>
+              <p>
+                The expected-alert file is a minimum positive catalogue, not a complete set of
+                negative labels. Section 5 now reports catalogue matching separately from actual
+                transaction classification.
+              </p>
+              <div class="mini-kpis">
+                <div><strong id="bfs-precision">—</strong><span>Precision</span></div>
+                <div><strong id="bfs-recall">—</strong><span>Recall</span></div>
+                <div><strong id="bfs-f1">—</strong><span>F1</span></div>
+                <div><strong id="bfs-false-positives">—</strong><span>False positives</span></div>
+              </div>
+              <ul class="check-list">
+                <li id="r014-summary">—</li>
+                <li id="r015-summary">—</li>
+                <li id="hard-negative-summary">—</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="improvement-card">
+            <div class="improvement-number">09</div>
+            <div class="improvement-content">
+              <span class="scope-chip">Training-selected configuration</span>
+              <h3><span id="rolling-title-window">—</span> coverage with bounded state</h3>
+              <p>
+                A causal rolling transfer detector keeps only events inside the active horizon.
+                This captures cross-midnight frequency patterns without retaining a multi-day
+                NetworkX graph in memory.
+              </p>
+              <div class="mini-kpis">
+                <div><strong id="rolling-window">—</strong><span>Rolling horizon</span></div>
+                <div><strong id="peak-events">—</strong><span>Peak active events</span></div>
+                <div><strong id="peak-queue">—</strong><span>Largest account queue</span></div>
+                <div><strong id="rolling-complexity">—</strong><span>Scoring time</span></div>
+              </div>
+              <div class="before-after" aria-label="Legacy and enhanced statistical union F1 comparison">
+                <div><span>Legacy union F1</span><strong id="legacy-union-f1">—</strong></div>
+                <div class="arrow" aria-hidden="true">→</div>
+                <div><span>Enhanced union F1</span><strong id="enhanced-union-f1">—</strong></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="evidence" class="section section-dark section-anchor">
+      <div class="container">
+        <header class="section-heading split-heading">
+          <div>
+            <div class="eyebrow">Engineering evidence</div>
+            <h2>Traceable, tested and bounded</h2>
+          </div>
+          <p>
+            Predictive metrics are supported by audit checks, deterministic tests and a measured
+            scalability run. These checks establish internal reliability, not production readiness.
+          </p>
+        </header>
+
+        <div class="evidence-grid">
+          <article>
+            <span class="evidence-icon" aria-hidden="true">✓</span>
+            <strong id="test-count">—</strong>
+            <h3>Automated tests passed</h3>
+            <p>Unit coverage across acquisition, preprocessing, graphs, rules, inference and metrics.</p>
+          </article>
+          <article>
+            <span class="evidence-icon" aria-hidden="true">↗</span>
+            <strong id="evidence-traceability">—</strong>
+            <h3>Alert traceability</h3>
+            <p>Every held-out alert resolved to known evidence transactions; zero IDs were unresolved.</p>
+          </article>
+          <article>
+            <span class="evidence-icon" aria-hidden="true">◎</span>
+            <strong id="benchmark-runtime">—</strong>
+            <h3>Full test benchmark</h3>
+            <p><span id="benchmark-rows">—</span> graph rows processed with valid evidence traceability in the recorded local run.</p>
+          </article>
+          <article>
+            <span class="evidence-icon" aria-hidden="true">≈</span>
+            <strong id="benchmark-memory">—</strong>
+            <h3>Peak Python allocation</h3>
+            <p>Measured with <code>tracemalloc</code>; this is not total operating-system memory.</p>
+          </article>
+        </div>
+
+        <div class="assurance-row">
+          <div><strong id="integration-checks">—</strong><span>Integration checks</span></div>
+          <div><strong id="determinism-checks">—</strong><span>Determinism checks</span></div>
+          <div><strong id="error-reconciliations">—</strong><span>Error reconciliations</span></div>
+          <div><strong id="artifact-count">—</strong><span>Hashed final artifacts</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <header class="section-heading">
+          <div class="eyebrow eyebrow-dark">Explainability examples</div>
+          <h2>The evidence pack includes successes and failures</h2>
+          <p id="demo-case-intro">Loading the demonstration cases…</p>
+        </header>
+
+        <div class="case-grid" id="demo-cases"></div>
+      </div>
+    </section>
+
+    <section id="methodology" class="section section-muted section-anchor">
+      <div class="container methodology-layout">
+        <div>
+          <div class="eyebrow eyebrow-dark">Evaluation design</div>
+          <h2>How to interpret the numbers</h2>
+          <p>
+            Detector parameters were selected using training data. Validation and test predictions
+            were materialised before labels were joined, and transaction and scenario results were
+            evaluated separately.
+          </p>
+        </div>
+        <ol class="method-steps">
+          <li><span>01</span><div><strong>Fit and select</strong><p>Use the synthetic training split only.</p></div></li>
+          <li><span>02</span><div><strong>Freeze predictions</strong><p>Generate held-out evidence without label inputs.</p></div></li>
+          <li><span>03</span><div><strong>Join truth</strong><p>Calculate validation and test confusion metrics.</p></div></li>
+          <li><span>04</span><div><strong>Audit evidence</strong><p>Verify every referenced transaction and exported result.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="limitations" class="section section-anchor">
+      <div class="container">
+        <header class="section-heading split-heading">
+          <div>
+            <div class="eyebrow eyebrow-dark">Interpretation boundary</div>
+            <h2>Successful prototype, not a production AML system</h2>
+          </div>
+          <p>
+            The results demonstrate the project idea on a planted synthetic design. Independent,
+            temporally separated real-world validation is still required.
+          </p>
+        </header>
+
+        <div class="limitations-grid">
+          <article><span>01</span><div><h3>Synthetic labels</h3><p>Headline results describe planted behaviours, not real financial-crime prevalence.</p></div></article>
+          <article><span>02</span><div><h3>Separate data meanings</h3><p>PaySim fraud and IBM AML are external context and are not pooled into the headline score.</p></div></article>
+          <article><span>03</span><div><h3>Training-selected thresholds</h3><p>Parameters require controlled recalibration before use with another population.</p></div></article>
+          <article><span>04</span><div><h3>Operational costs</h3><p>Investigation capacity, alert priority and reviewer cost were not simulated.</p></div></article>
+          <article><span>05</span><div><h3>Bounded scale</h3><p>Graph benchmarking stops at the <span id="limitation-population">—</span>-row synthetic test population.</p></div></article>
+          <article><span>06</span><div><h3>Governance work</h3><p>Fairness, privacy, drift and independent compliance review remain future work.</p></div></article>
+        </div>
+
+        <blockquote class="conclusion">
+          <p id="supported-conclusion">Loading the supported conclusion…</p>
+          <footer>Supported project conclusion</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section sources-section" aria-labelledby="sources-title">
+      <div class="container">
+        <header class="section-heading">
+          <div class="eyebrow eyebrow-dark">Project evidence</div>
+          <h2 id="sources-title">Source files</h2>
+          <p>
+            All displayed values come from the project outputs below. Run
+            <code>python scripts/run_project.py</code> once to regenerate the linked files.
+          </p>
+        </header>
+        <div class="source-list">
+          <a href="../workspace/outputs/tables/section12_final_scorecard.csv">
+            <span>Headline scorecard</span><code>section12_final_scorecard.csv</code>
+          </a>
+          <a href="../workspace/outputs/tables/section10_tradeoffs.csv">
+            <span>Validation and test trade-offs</span><code>section10_tradeoffs.csv</code>
+          </a>
+          <a href="../workspace/outputs/tables/section5_bfs_training_metrics.csv">
+            <span>Section 5 classification metrics</span><code>section5_bfs_training_metrics.csv</code>
+          </a>
+          <a href="../workspace/outputs/audit_trails/section9_baseline_report.json">
+            <span>Section 9 rolling-state report</span><code>section9_baseline_report.json</code>
+          </a>
+          <a href="../workspace/outputs/audit_trails/section11_testing_report.json">
+            <span>Testing and scalability report</span><code>section11_testing_report.json</code>
+          </a>
+          <a href="../workspace/outputs/tables/section12_demo_cases.csv">
+            <span>Demonstration cases</span><code>section12_demo_cases.csv</code>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>FinReason</strong>
+        <p>Explainable AI for financial anomaly detection.</p>
+      </div>
+      <p>Synthetic research prototype · Not a legal determination</p>
+    </div>
+  </footer>
+</body>
+</html>

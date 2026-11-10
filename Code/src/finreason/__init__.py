@@ -1,0 +1,106 @@
+"""FinReason coursework implementation package."""
+
+from .acquisition import (
+    AcquisitionError,
+    acquire_finreason,
+    acquire_ibm_aml,
+    acquire_paysim,
+    write_acquisition_manifest,
+)
+from .preprocessing import (
+    COMMON_COLUMNS,
+    create_exact_paysim_sample,
+    derive_temporal_cutoffs,
+    harmonize_finreason,
+    harmonize_ibm,
+    harmonize_paysim,
+    profile_and_clean,
+)
+from .temporal_graph import (
+    EDGE_ATTRIBUTES,
+    build_temporal_multidigraph,
+    graph_summary,
+    validate_graph_traceability,
+)
+from .bfs_detection import (
+    BFSAlert,
+    bounded_temporal_bfs,
+    detect_fan_in,
+    detect_fan_out,
+    evaluate_scenario_alerts,
+)
+from .dfs_detection import (
+    DFSAlert,
+    detect_circular_flows,
+    detect_layering_paths,
+    evaluate_dfs_scenarios,
+)
+from .knowledge import (
+    Explanation,
+    Fact,
+    KnowledgeAlert,
+    KnowledgeBase,
+    Rule,
+    SourceReference,
+    build_rule_test_contexts,
+    load_reference_catalogue,
+    load_rules,
+)
+from .inference import ForwardChainer, InferenceEvent, RuleActivation, static_matcher
+from .baselines import (
+    AccountCurrencyZScoreBaseline,
+    AccountDailyFrequencyIQRBaseline,
+    AccountRollingFrequencyBaseline,
+    CurrencyLogAmountZScoreBaseline,
+    StatisticalAlert,
+    evaluate_scenario_evidence,
+    evaluate_transaction_evidence,
+)
+
+__all__ = [
+    "AcquisitionError",
+    "acquire_finreason",
+    "acquire_ibm_aml",
+    "acquire_paysim",
+    "write_acquisition_manifest",
+    "COMMON_COLUMNS",
+    "create_exact_paysim_sample",
+    "derive_temporal_cutoffs",
+    "harmonize_finreason",
+    "harmonize_ibm",
+    "harmonize_paysim",
+    "profile_and_clean",
+    "EDGE_ATTRIBUTES",
+    "build_temporal_multidigraph",
+    "graph_summary",
+    "validate_graph_traceability",
+    "BFSAlert",
+    "bounded_temporal_bfs",
+    "detect_fan_in",
+    "detect_fan_out",
+    "evaluate_scenario_alerts",
+    "DFSAlert",
+    "detect_circular_flows",
+    "detect_layering_paths",
+    "evaluate_dfs_scenarios",
+    "SourceReference",
+    "Fact",
+    "Rule",
+    "Explanation",
+    "KnowledgeAlert",
+    "KnowledgeBase",
+    "load_reference_catalogue",
+    "load_rules",
+    "build_rule_test_contexts",
+    "RuleActivation",
+    "InferenceEvent",
+    "ForwardChainer",
+    "static_matcher",
+    "StatisticalAlert",
+    "AccountCurrencyZScoreBaseline",
+    "AccountDailyFrequencyIQRBaseline",
+    "AccountRollingFrequencyBaseline",
+    "CurrencyLogAmountZScoreBaseline",
+    "evaluate_transaction_evidence",
+    "evaluate_scenario_evidence",
+]

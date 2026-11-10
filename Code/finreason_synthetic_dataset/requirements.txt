@@ -1,0 +1,2 @@
+# The generator and validator require Python 3.10+ and use only the standard library.
+# The optional notebook runs in standard Jupyter/Google Colab without extra packages.

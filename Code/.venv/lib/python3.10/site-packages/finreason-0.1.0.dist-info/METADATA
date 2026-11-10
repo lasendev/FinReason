@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: finreason
+Version: 0.1.0
+Summary: Explainable graph and rule-based financial anomaly detection
+Requires-Python: >=3.10
+Requires-Dist: networkx<4,>=3.0
+Requires-Dist: numpy<3,>=1.24
+Requires-Dist: pandas<3,>=1.5

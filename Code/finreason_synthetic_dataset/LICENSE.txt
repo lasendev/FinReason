@@ -1,0 +1,15 @@
+FinReason Synthetic Financial Crime Dataset — Version 1.0.0
+
+Copyright (c) 2026 FinReason contributors
+
+This work is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+You are free to share and adapt the material for any purpose, provided appropriate credit is given, a link to the licence is supplied, and changes are indicated.
+
+Licence summary: https://creativecommons.org/licenses/by/4.0/
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Suggested attribution:
+"FinReason Synthetic Financial Crime Dataset v1.0.0, created by FinReason contributors, licensed under CC BY 4.0."
+
+All records are synthetic. No real personal or financial data is included.

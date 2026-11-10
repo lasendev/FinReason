@@ -1,0 +1,283 @@
+{
+  "status": "PASS",
+  "dataset": "FinReason Synthetic Financial Crime Dataset",
+  "version": "1.0.0",
+  "checks_passed": 43,
+  "checks_failed": 0,
+  "row_counts": {
+    "accounts.csv": 5000,
+    "transactions.csv": 67670,
+    "invoices.csv": 1885,
+    "scenarios.csv": 1570,
+    "scenario_transactions.csv": 6269,
+    "scenario_invoices.csv": 385,
+    "expected_alerts.csv": 1305,
+    "expected_rule_firings.csv": 2585,
+    "rule_catalog.csv": 33,
+    "rule_test_cases.csv": 66
+  },
+  "transaction_split_counts": {
+    "test": 22309,
+    "train": 33830,
+    "validation": 11531
+  },
+  "transaction_label_counts": {
+    "normal": 62726,
+    "anomaly": 4944,
+    "laundering": 4659
+  },
+  "scenario_type_counts": {
+    "CIRCULAR_FLOW": 70,
+    "COMBINED_FANOUT_FANIN": 55,
+    "CRITICAL_CASE": 15,
+    "CROSS_BORDER_LAYERING": 25,
+    "DUPLICATE_INVOICE": 30,
+    "ELEVATED_RISK_ROUTE": 25,
+    "FAN_IN": 85,
+    "FAN_OUT": 85,
+    "FOREIGN_CURRENCY_INVOICE": 35,
+    "HIGH_FREQUENCY": 50,
+    "HIGH_VALUE_CASH": 25,
+    "HIGH_VALUE_OVERDUE": 35,
+    "INVALID_VAT_RATE": 35,
+    "LARGE_FOREIGN_CURRENCY": 50,
+    "LAYERING_CHAIN": 85,
+    "LEGIT_HIGH_VALUE": 55,
+    "LEGIT_MERCHANT_FANIN": 55,
+    "LEGIT_NEAR_THRESHOLD": 55,
+    "LEGIT_PAYROLL_FANOUT": 55,
+    "LEGIT_SUPPLY_CHAIN": 45,
+    "MULTI_INDICATOR": 20,
+    "NEW_ACCOUNT_HIGH_VALUE": 25,
+    "OVERDUE_30": 50,
+    "OVERDUE_60": 45,
+    "OVERDUE_90": 45,
+    "PAYMENT_EXCEEDS_GROSS": 35,
+    "PEP_GRAPH_PATTERN": 20,
+    "PEP_HIGH_VALUE": 25,
+    "RAPID_BALANCE_DRAIN": 25,
+    "RAPID_PASS_THROUGH": 85,
+    "ROUND_AMOUNT_BURST": 25,
+    "STRUCTURING": 110,
+    "STRUCTURING_FANOUT": 20,
+    "UNUSUAL_HOUR": 25,
+    "VAT_AMOUNT_MISMATCH": 45
+  },
+  "checks": [
+    {
+      "check": "required_files",
+      "status": "PASS",
+      "evidence": "missing=[]"
+    },
+    {
+      "check": "columns_accounts.csv",
+      "status": "PASS",
+      "evidence": "missing=[]"
+    },
+    {
+      "check": "columns_transactions.csv",
+      "status": "PASS",
+      "evidence": "missing=[]"
+    },
+    {
+      "check": "columns_invoices.csv",
+      "status": "PASS",
+      "evidence": "missing=[]"
+    },
+    {
+      "check": "columns_scenarios.csv",
+      "status": "PASS",
+      "evidence": "missing=[]"
+    },
+    {
+      "check": "unique_account_id",
+      "status": "PASS",
+      "evidence": "rows=5000, distinct=5000"
+    },
+    {
+      "check": "unique_transaction_id",
+      "status": "PASS",
+      "evidence": "rows=67670, distinct=67670"
+    },
+    {
+      "check": "unique_invoice_id",
+      "status": "PASS",
+      "evidence": "rows=1885, distinct=1885"
+    },
+    {
+      "check": "unique_scenario_id",
+      "status": "PASS",
+      "evidence": "rows=1570, distinct=1570"
+    },
+    {
+      "check": "unique_rule_id",
+      "status": "PASS",
+      "evidence": "rows=33, distinct=33"
+    },
+    {
+      "check": "unique_test_case_id",
+      "status": "PASS",
+      "evidence": "rows=66, distinct=66"
+    },
+    {
+      "check": "metadata_count_accounts.csv",
+      "status": "PASS",
+      "evidence": "metadata=5000, actual=5000"
+    },
+    {
+      "check": "metadata_count_transactions.csv",
+      "status": "PASS",
+      "evidence": "metadata=67670, actual=67670"
+    },
+    {
+      "check": "metadata_count_invoices.csv",
+      "status": "PASS",
+      "evidence": "metadata=1885, actual=1885"
+    },
+    {
+      "check": "metadata_count_scenarios.csv",
+      "status": "PASS",
+      "evidence": "metadata=1570, actual=1570"
+    },
+    {
+      "check": "metadata_count_scenario_transactions.csv",
+      "status": "PASS",
+      "evidence": "metadata=6269, actual=6269"
+    },
+    {
+      "check": "metadata_count_scenario_invoices.csv",
+      "status": "PASS",
+      "evidence": "metadata=385, actual=385"
+    },
+    {
+      "check": "metadata_count_expected_alerts.csv",
+      "status": "PASS",
+      "evidence": "metadata=1305, actual=1305"
+    },
+    {
+      "check": "metadata_count_expected_rule_firings.csv",
+      "status": "PASS",
+      "evidence": "metadata=2585, actual=2585"
+    },
+    {
+      "check": "metadata_count_rule_catalog.csv",
+      "status": "PASS",
+      "evidence": "metadata=33, actual=33"
+    },
+    {
+      "check": "metadata_count_rule_test_cases.csv",
+      "status": "PASS",
+      "evidence": "metadata=66, actual=66"
+    },
+    {
+      "check": "transaction_account_fks",
+      "status": "PASS",
+      "evidence": "transactions=67670"
+    },
+    {
+      "check": "invoice_account_fks",
+      "status": "PASS",
+      "evidence": "invoices=1885"
+    },
+    {
+      "check": "scenario_transaction_fks",
+      "status": "PASS",
+      "evidence": "members=6269"
+    },
+    {
+      "check": "scenario_invoice_fks",
+      "status": "PASS",
+      "evidence": "members=385"
+    },
+    {
+      "check": "alert_scenario_fks",
+      "status": "PASS",
+      "evidence": "alerts=1305"
+    },
+    {
+      "check": "firing_fks",
+      "status": "PASS",
+      "evidence": "firings=2585"
+    },
+    {
+      "check": "transaction_time_splits",
+      "status": "PASS",
+      "evidence": "Counter({'train': 33830, 'test': 22309, 'validation': 11531})"
+    },
+    {
+      "check": "transactions_after_account_open",
+      "status": "PASS",
+      "evidence": "all transaction timestamps are on/after both account opening timestamps"
+    },
+    {
+      "check": "positive_amounts",
+      "status": "PASS",
+      "evidence": "minimum=20.39"
+    },
+    {
+      "check": "binary_labels",
+      "status": "PASS",
+      "evidence": "allowed={0,1}"
+    },
+    {
+      "check": "laundering_implies_anomaly",
+      "status": "PASS",
+      "evidence": "no laundering-positive transaction is anomaly-negative"
+    },
+    {
+      "check": "cross_border_consistency",
+      "status": "PASS",
+      "evidence": "derived flag agrees with countries"
+    },
+    {
+      "check": "ledger_balance_reconciliation",
+      "status": "PASS",
+      "evidence": "errors=0"
+    },
+    {
+      "check": "non_negative_balances",
+      "status": "PASS",
+      "evidence": "minimum_final=10000.00"
+    },
+    {
+      "check": "scenario_member_counts",
+      "status": "PASS",
+      "evidence": "mismatches=0"
+    },
+    {
+      "check": "positive_scenario_alert_coverage",
+      "status": "PASS",
+      "evidence": "positive=1305, alerted=1305"
+    },
+    {
+      "check": "hard_negative_no_expected_alert",
+      "status": "PASS",
+      "evidence": "hard_negatives=265, incorrectly_alerted=0"
+    },
+    {
+      "check": "rule_unit_case_coverage",
+      "status": "PASS",
+      "evidence": "rules=33, test_cases=66"
+    },
+    {
+      "check": "scenario_rule_coverage",
+      "status": "PASS",
+      "evidence": "covered=33/33"
+    },
+    {
+      "check": "scenario_semantics",
+      "status": "PASS",
+      "evidence": "errors=0, examples=[]"
+    },
+    {
+      "check": "duplicate_invoice_ground_truth",
+      "status": "PASS",
+      "evidence": "covered=30/30"
+    },
+    {
+      "check": "vat_calculation_normal_rows",
+      "status": "PASS",
+      "evidence": "all non-VAT-anomaly invoices reconcile"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+rule_id,rule_name,fact_category,priority,condition_summary,derived_fact,severity,recommended_action
+R001,High-value transaction,TRANSACTION,60,amount >= 100000 GBP-equivalent,HIGH_VALUE_TX,MEDIUM,Queue for human review; educational synthetic rule only.
+R002,Cross-border transfer,TRANSACTION,40,from_country != to_country,CROSS_BORDER_TX,LOW,Queue for human review; educational synthetic rule only.
+R003,Elevated-risk test route,TRANSACTION,80,country in fictional XZ/XY test list,ELEVATED_ROUTE,HIGH,Queue for human review; educational synthetic rule only.
+R004,High-value cash,TRANSACTION,90,amount >= 100000 and payment_format = CASH,HIGH_VALUE_CASH,HIGH,Queue for human review; educational synthetic rule only.
+R005,Near-threshold payment,TRANSACTION,55,9000 <= amount < 10000,NEAR_THRESHOLD_TX,MEDIUM,Queue for human review; educational synthetic rule only.
+R006,Seven-day structuring,AGGREGATE,95,>=4 near-threshold payments in 7 days,STRUCTURING_PATTERN,HIGH,Queue for human review; educational synthetic rule only.
+R007,High transaction frequency,AGGREGATE,65,>=12 outgoing payments in 24 hours,HIGH_FREQUENCY,MEDIUM,Queue for human review; educational synthetic rule only.
+R008,Unusual-hour transaction,TRANSACTION,25,timestamp hour between 00:00 and 04:00 UTC,UNUSUAL_HOUR,LOW,Queue for human review; educational synthetic rule only.
+R009,New-account high value,TRANSACTION,75,account age < 180 days and high value,NEW_ACCOUNT_HIGH_VALUE,HIGH,Queue for human review; educational synthetic rule only.
+R010,PEP high value,TRANSACTION,90,is_pep and high value,PEP_HIGH_VALUE,HIGH,Queue for human review; educational synthetic rule only.
+R011,Currency conversion,TRANSACTION,35,payment_currency != receiving_currency,CURRENCY_CONVERSION,LOW,Queue for human review; educational synthetic rule only.
+R012,Large round amount,TRANSACTION,30,amount >= 50000 and divisible by 10000,ROUND_AMOUNT,LOW,Queue for human review; educational synthetic rule only.
+R013,Rapid balance drain,TRANSACTION,70,outgoing amount >= 80% of pre-transaction balance,BALANCE_DRAIN,HIGH,Queue for human review; educational synthetic rule only.
+R014,Graph fan-out,GRAPH,80,>=4 distinct successors in 24 hours,FAN_OUT_PATTERN,HIGH,Queue for human review; educational synthetic rule only.
+R015,Graph fan-in,GRAPH,80,>=4 distinct predecessors in 24 hours,FAN_IN_PATTERN,HIGH,Queue for human review; educational synthetic rule only.
+R016,Temporal layering chain,GRAPH,90,>=4 edges with increasing timestamps and amount retention,LAYERING_PATTERN,HIGH,Queue for human review; educational synthetic rule only.
+R017,Temporal circular flow,GRAPH,100,time-respecting path returns to origin,CIRCULAR_FLOW,CRITICAL,Queue for human review; educational synthetic rule only.
+R018,Rapid pass-through,GRAPH,85,outflow within 30 minutes retaining >=95% of inflow,RAPID_PASS_THROUGH,HIGH,Queue for human review; educational synthetic rule only.
+R019,Combined fan-out and fan-in,DERIVED,95,FAN_OUT_PATTERN and FAN_IN_PATTERN,COMBINED_GRAPH_PATTERN,CRITICAL,Queue for human review; educational synthetic rule only.
+R020,Cross-border layering,DERIVED,95,LAYERING_PATTERN and CROSS_BORDER_TX,CROSS_BORDER_LAYERING,CRITICAL,Queue for human review; educational synthetic rule only.
+R021,PEP graph pattern,DERIVED,100,is_pep and graph pattern,PEP_GRAPH_PATTERN,CRITICAL,Queue for human review; educational synthetic rule only.
+R022,Structuring plus fan-out,DERIVED,95,STRUCTURING_PATTERN and FAN_OUT_PATTERN,STRUCTURING_FANOUT,CRITICAL,Queue for human review; educational synthetic rule only.
+R023,Multiple-indicator escalation,DERIVED,98,>=2 independent risk facts,MULTI_INDICATOR_CASE,CRITICAL,Queue for human review; educational synthetic rule only.
+R024,Receivable overdue 30 days,INVOICE,50,unpaid and days_overdue >= 30,OVERDUE_30,MEDIUM,Queue for human review; educational synthetic rule only.
+R025,Receivable overdue 60 days,INVOICE,65,unpaid and days_overdue >= 60,OVERDUE_60,HIGH,Queue for human review; educational synthetic rule only.
+R026,Receivable overdue 90 days,INVOICE,80,unpaid and days_overdue >= 90,OVERDUE_90,CRITICAL,Queue for human review; educational synthetic rule only.
+R027,VAT amount mismatch,INVOICE,80,reported VAT differs from expected VAT,VAT_MISMATCH,HIGH,Queue for human review; educational synthetic rule only.
+R028,Invalid synthetic VAT rate,INVOICE,70,VAT rate not in configured educational list,INVALID_VAT_RATE,HIGH,Queue for human review; educational synthetic rule only.
+R029,Duplicate invoice,INVOICE,85,"duplicate external invoice number, supplier and customer",DUPLICATE_INVOICE,HIGH,Queue for human review; educational synthetic rule only.
+R030,Payment exceeds gross,INVOICE,75,linked payment > invoice gross amount,OVERPAYMENT,HIGH,Queue for human review; educational synthetic rule only.
+R031,Foreign-currency invoice,INVOICE,35,invoice currency differs from customer base currency,FOREIGN_CURRENCY_INVOICE,LOW,Queue for human review; educational synthetic rule only.
+R032,High-value overdue receivable,DERIVED,90,OVERDUE_90 and gross amount >= 500000,HIGH_VALUE_OVERDUE,CRITICAL,Queue for human review; educational synthetic rule only.
+R033,Critical case escalation,DERIVED,100,>=3 high/critical derived facts,CRITICAL_CASE,CRITICAL,Queue for human review; educational synthetic rule only.

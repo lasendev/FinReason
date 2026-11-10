@@ -1,0 +1,9 @@
+# Install the FinReason package and notebook environment.
+-e .
+
+gdown>=5.0,<6
+ipykernel>=6.0,<7
+jupyter>=1.0,<2
+matplotlib>=3.6,<4
+nbconvert>=7.0,<8
+psutil>=5.9,<8

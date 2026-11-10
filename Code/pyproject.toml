@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "finreason"
+version = "0.1.0"
+description = "Explainable graph and rule-based financial anomaly detection"
+requires-python = ">=3.10"
+dependencies = [
+    "networkx>=3.0,<4",
+    "numpy>=1.24,<3",
+    "pandas>=1.5,<3",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

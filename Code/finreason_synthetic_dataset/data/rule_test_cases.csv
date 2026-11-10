@@ -1,0 +1,67 @@
+test_case_id,rule_id,expected_fire,input_facts_json,expected_derived_fact,notes
+RTC-R001-1,R001,1,"{""condition"": ""amount >= 100000 GBP-equivalent"", ""condition_satisfied"": true, ""synthetic_case"": true}",HIGH_VALUE_TX,Positive unit case for High-value transaction.
+RTC-R001-0,R001,0,"{""condition"": ""amount >= 100000 GBP-equivalent"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for High-value transaction.
+RTC-R002-1,R002,1,"{""condition"": ""from_country != to_country"", ""condition_satisfied"": true, ""synthetic_case"": true}",CROSS_BORDER_TX,Positive unit case for Cross-border transfer.
+RTC-R002-0,R002,0,"{""condition"": ""from_country != to_country"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Cross-border transfer.
+RTC-R003-1,R003,1,"{""condition"": ""country in fictional XZ/XY test list"", ""condition_satisfied"": true, ""synthetic_case"": true}",ELEVATED_ROUTE,Positive unit case for Elevated-risk test route.
+RTC-R003-0,R003,0,"{""condition"": ""country in fictional XZ/XY test list"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Elevated-risk test route.
+RTC-R004-1,R004,1,"{""condition"": ""amount >= 100000 and payment_format = CASH"", ""condition_satisfied"": true, ""synthetic_case"": true}",HIGH_VALUE_CASH,Positive unit case for High-value cash.
+RTC-R004-0,R004,0,"{""condition"": ""amount >= 100000 and payment_format = CASH"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for High-value cash.
+RTC-R005-1,R005,1,"{""condition"": ""9000 <= amount < 10000"", ""condition_satisfied"": true, ""synthetic_case"": true}",NEAR_THRESHOLD_TX,Positive unit case for Near-threshold payment.
+RTC-R005-0,R005,0,"{""condition"": ""9000 <= amount < 10000"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Near-threshold payment.
+RTC-R006-1,R006,1,"{""condition"": "">=4 near-threshold payments in 7 days"", ""condition_satisfied"": true, ""synthetic_case"": true}",STRUCTURING_PATTERN,Positive unit case for Seven-day structuring.
+RTC-R006-0,R006,0,"{""condition"": "">=4 near-threshold payments in 7 days"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Seven-day structuring.
+RTC-R007-1,R007,1,"{""condition"": "">=12 outgoing payments in 24 hours"", ""condition_satisfied"": true, ""synthetic_case"": true}",HIGH_FREQUENCY,Positive unit case for High transaction frequency.
+RTC-R007-0,R007,0,"{""condition"": "">=12 outgoing payments in 24 hours"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for High transaction frequency.
+RTC-R008-1,R008,1,"{""condition"": ""timestamp hour between 00:00 and 04:00 UTC"", ""condition_satisfied"": true, ""synthetic_case"": true}",UNUSUAL_HOUR,Positive unit case for Unusual-hour transaction.
+RTC-R008-0,R008,0,"{""condition"": ""timestamp hour between 00:00 and 04:00 UTC"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Unusual-hour transaction.
+RTC-R009-1,R009,1,"{""condition"": ""account age < 180 days and high value"", ""condition_satisfied"": true, ""synthetic_case"": true}",NEW_ACCOUNT_HIGH_VALUE,Positive unit case for New-account high value.
+RTC-R009-0,R009,0,"{""condition"": ""account age < 180 days and high value"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for New-account high value.
+RTC-R010-1,R010,1,"{""condition"": ""is_pep and high value"", ""condition_satisfied"": true, ""synthetic_case"": true}",PEP_HIGH_VALUE,Positive unit case for PEP high value.
+RTC-R010-0,R010,0,"{""condition"": ""is_pep and high value"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for PEP high value.
+RTC-R011-1,R011,1,"{""condition"": ""payment_currency != receiving_currency"", ""condition_satisfied"": true, ""synthetic_case"": true}",CURRENCY_CONVERSION,Positive unit case for Currency conversion.
+RTC-R011-0,R011,0,"{""condition"": ""payment_currency != receiving_currency"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Currency conversion.
+RTC-R012-1,R012,1,"{""condition"": ""amount >= 50000 and divisible by 10000"", ""condition_satisfied"": true, ""synthetic_case"": true}",ROUND_AMOUNT,Positive unit case for Large round amount.
+RTC-R012-0,R012,0,"{""condition"": ""amount >= 50000 and divisible by 10000"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Large round amount.
+RTC-R013-1,R013,1,"{""condition"": ""outgoing amount >= 80% of pre-transaction balance"", ""condition_satisfied"": true, ""synthetic_case"": true}",BALANCE_DRAIN,Positive unit case for Rapid balance drain.
+RTC-R013-0,R013,0,"{""condition"": ""outgoing amount >= 80% of pre-transaction balance"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Rapid balance drain.
+RTC-R014-1,R014,1,"{""condition"": "">=4 distinct successors in 24 hours"", ""condition_satisfied"": true, ""synthetic_case"": true}",FAN_OUT_PATTERN,Positive unit case for Graph fan-out.
+RTC-R014-0,R014,0,"{""condition"": "">=4 distinct successors in 24 hours"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Graph fan-out.
+RTC-R015-1,R015,1,"{""condition"": "">=4 distinct predecessors in 24 hours"", ""condition_satisfied"": true, ""synthetic_case"": true}",FAN_IN_PATTERN,Positive unit case for Graph fan-in.
+RTC-R015-0,R015,0,"{""condition"": "">=4 distinct predecessors in 24 hours"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Graph fan-in.
+RTC-R016-1,R016,1,"{""condition"": "">=4 edges with increasing timestamps and amount retention"", ""condition_satisfied"": true, ""synthetic_case"": true}",LAYERING_PATTERN,Positive unit case for Temporal layering chain.
+RTC-R016-0,R016,0,"{""condition"": "">=4 edges with increasing timestamps and amount retention"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Temporal layering chain.
+RTC-R017-1,R017,1,"{""condition"": ""time-respecting path returns to origin"", ""condition_satisfied"": true, ""synthetic_case"": true}",CIRCULAR_FLOW,Positive unit case for Temporal circular flow.
+RTC-R017-0,R017,0,"{""condition"": ""time-respecting path returns to origin"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Temporal circular flow.
+RTC-R018-1,R018,1,"{""condition"": ""outflow within 30 minutes retaining >=95% of inflow"", ""condition_satisfied"": true, ""synthetic_case"": true}",RAPID_PASS_THROUGH,Positive unit case for Rapid pass-through.
+RTC-R018-0,R018,0,"{""condition"": ""outflow within 30 minutes retaining >=95% of inflow"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Rapid pass-through.
+RTC-R019-1,R019,1,"{""condition"": ""FAN_OUT_PATTERN and FAN_IN_PATTERN"", ""condition_satisfied"": true, ""synthetic_case"": true}",COMBINED_GRAPH_PATTERN,Positive unit case for Combined fan-out and fan-in.
+RTC-R019-0,R019,0,"{""condition"": ""FAN_OUT_PATTERN and FAN_IN_PATTERN"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Combined fan-out and fan-in.
+RTC-R020-1,R020,1,"{""condition"": ""LAYERING_PATTERN and CROSS_BORDER_TX"", ""condition_satisfied"": true, ""synthetic_case"": true}",CROSS_BORDER_LAYERING,Positive unit case for Cross-border layering.
+RTC-R020-0,R020,0,"{""condition"": ""LAYERING_PATTERN and CROSS_BORDER_TX"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Cross-border layering.
+RTC-R021-1,R021,1,"{""condition"": ""is_pep and graph pattern"", ""condition_satisfied"": true, ""synthetic_case"": true}",PEP_GRAPH_PATTERN,Positive unit case for PEP graph pattern.
+RTC-R021-0,R021,0,"{""condition"": ""is_pep and graph pattern"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for PEP graph pattern.
+RTC-R022-1,R022,1,"{""condition"": ""STRUCTURING_PATTERN and FAN_OUT_PATTERN"", ""condition_satisfied"": true, ""synthetic_case"": true}",STRUCTURING_FANOUT,Positive unit case for Structuring plus fan-out.
+RTC-R022-0,R022,0,"{""condition"": ""STRUCTURING_PATTERN and FAN_OUT_PATTERN"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Structuring plus fan-out.
+RTC-R023-1,R023,1,"{""condition"": "">=2 independent risk facts"", ""condition_satisfied"": true, ""synthetic_case"": true}",MULTI_INDICATOR_CASE,Positive unit case for Multiple-indicator escalation.
+RTC-R023-0,R023,0,"{""condition"": "">=2 independent risk facts"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Multiple-indicator escalation.
+RTC-R024-1,R024,1,"{""condition"": ""unpaid and days_overdue >= 30"", ""condition_satisfied"": true, ""synthetic_case"": true}",OVERDUE_30,Positive unit case for Receivable overdue 30 days.
+RTC-R024-0,R024,0,"{""condition"": ""unpaid and days_overdue >= 30"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Receivable overdue 30 days.
+RTC-R025-1,R025,1,"{""condition"": ""unpaid and days_overdue >= 60"", ""condition_satisfied"": true, ""synthetic_case"": true}",OVERDUE_60,Positive unit case for Receivable overdue 60 days.
+RTC-R025-0,R025,0,"{""condition"": ""unpaid and days_overdue >= 60"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Receivable overdue 60 days.
+RTC-R026-1,R026,1,"{""condition"": ""unpaid and days_overdue >= 90"", ""condition_satisfied"": true, ""synthetic_case"": true}",OVERDUE_90,Positive unit case for Receivable overdue 90 days.
+RTC-R026-0,R026,0,"{""condition"": ""unpaid and days_overdue >= 90"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Receivable overdue 90 days.
+RTC-R027-1,R027,1,"{""condition"": ""reported VAT differs from expected VAT"", ""condition_satisfied"": true, ""synthetic_case"": true}",VAT_MISMATCH,Positive unit case for VAT amount mismatch.
+RTC-R027-0,R027,0,"{""condition"": ""reported VAT differs from expected VAT"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for VAT amount mismatch.
+RTC-R028-1,R028,1,"{""condition"": ""VAT rate not in configured educational list"", ""condition_satisfied"": true, ""synthetic_case"": true}",INVALID_VAT_RATE,Positive unit case for Invalid synthetic VAT rate.
+RTC-R028-0,R028,0,"{""condition"": ""VAT rate not in configured educational list"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Invalid synthetic VAT rate.
+RTC-R029-1,R029,1,"{""condition"": ""duplicate external invoice number, supplier and customer"", ""condition_satisfied"": true, ""synthetic_case"": true}",DUPLICATE_INVOICE,Positive unit case for Duplicate invoice.
+RTC-R029-0,R029,0,"{""condition"": ""duplicate external invoice number, supplier and customer"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Duplicate invoice.
+RTC-R030-1,R030,1,"{""condition"": ""linked payment > invoice gross amount"", ""condition_satisfied"": true, ""synthetic_case"": true}",OVERPAYMENT,Positive unit case for Payment exceeds gross.
+RTC-R030-0,R030,0,"{""condition"": ""linked payment > invoice gross amount"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Payment exceeds gross.
+RTC-R031-1,R031,1,"{""condition"": ""invoice currency differs from customer base currency"", ""condition_satisfied"": true, ""synthetic_case"": true}",FOREIGN_CURRENCY_INVOICE,Positive unit case for Foreign-currency invoice.
+RTC-R031-0,R031,0,"{""condition"": ""invoice currency differs from customer base currency"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Foreign-currency invoice.
+RTC-R032-1,R032,1,"{""condition"": ""OVERDUE_90 and gross amount >= 500000"", ""condition_satisfied"": true, ""synthetic_case"": true}",HIGH_VALUE_OVERDUE,Positive unit case for High-value overdue receivable.
+RTC-R032-0,R032,0,"{""condition"": ""OVERDUE_90 and gross amount >= 500000"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for High-value overdue receivable.
+RTC-R033-1,R033,1,"{""condition"": "">=3 high/critical derived facts"", ""condition_satisfied"": true, ""synthetic_case"": true}",CRITICAL_CASE,Positive unit case for Critical case escalation.
+RTC-R033-0,R033,0,"{""condition"": "">=3 high/critical derived facts"", ""condition_satisfied"": false, ""synthetic_case"": true}",,Negative unit case for Critical case escalation.

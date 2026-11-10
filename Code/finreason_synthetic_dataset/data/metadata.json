@@ -1,0 +1,32 @@
+{
+  "dataset_name": "FinReason Synthetic Financial Crime Dataset",
+  "version": "1.0.0",
+  "seed": 20250713,
+  "release_timestamp_utc": "2026-07-29T00:00:00Z",
+  "observation_period": [
+    "2025-01-01T00:00:00Z",
+    "2025-12-31T23:59:00Z"
+  ],
+  "as_of_date_for_receivables": "2025-12-31",
+  "license": "CC BY 4.0",
+  "synthetic": true,
+  "educational_use_notice": "All persons, accounts, jurisdictions and transactions are synthetic. Thresholds are coursework assumptions, not legal advice.",
+  "row_counts": {
+    "accounts.csv": 5000,
+    "transactions.csv": 67670,
+    "invoices.csv": 1885,
+    "scenarios.csv": 1570,
+    "scenario_transactions.csv": 6269,
+    "scenario_invoices.csv": 385,
+    "expected_alerts.csv": 1305,
+    "expected_rule_firings.csv": 2585,
+    "rule_catalog.csv": 33,
+    "rule_test_cases.csv": 66
+  },
+  "class_counts": {
+    "transaction_anomaly_positive": 4944,
+    "transaction_laundering_positive": 4659,
+    "scenario_anomaly_positive": 1305,
+    "hard_negative_scenarios": 265
+  }
+}
